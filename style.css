@@ -1,0 +1,442 @@
+/* Start Global Rules */
+:root {
+    --mainBlue : rgb(37, 209, 244) ;
+    --textColor : #0F172A ;
+    --green : #A3E635 ;
+    --bgColor : rgb(12, 21, 24) ;
+}
+* {
+      font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+body  {
+    background-color: var(--bgColor);
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column; ;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5em;
+    gap: 2.5em;
+}
+/* End Global Rules */
+
+/* Start Header */
+header {
+    background-color: var(--bgColor);
+    border-bottom:2px solid color-mix(in srgb, var(--mainBlue), transparent 60%) ;
+    box-shadow: 0 1px 5px color-mix(in srgb, var(--mainBlue), transparent 70%) ;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 1em 4em ;
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    color : white ;
+    font-size : 1.5em ;
+  font-weight: bold;
+  gap: .25em;
+}
+.logo span {
+      font-family: "Space Grotesk", sans-serif;
+}
+
+.block-logo {
+    color: var(--mainBlue);
+}
+
+.logo img {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-setings {
+    background-color:  rgb(37 209 244 /0.1) ;
+    border: 1px solid rgb(37 209 244 /0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+/* End Header */
+
+/* Start Main Info */
+.infos {
+    display: flex;
+    justify-content: center;
+    gap : .75em ; 
+    width: clamp(700px , 60vw , 60vw);
+    margin: auto;
+}
+.infos > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .25em;
+    padding: 1.25em;
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
+    border-radius: 1em;
+}
+.infos > div > .title {
+    font-size: 14px;
+    color: var(--mainBlue);
+
+}
+.infos > div > .title i {
+    font-size: 12px;
+    margin-right: .5em;
+}
+.infos > div > span:last-child {
+    font-weight: bold;
+    font-size: 1.75em;
+}
+/* End Main Info */
+
+/* Start Game box */
+.main-game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: -1.25em;
+}
+main .game {
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
+    border-radius: 1.5em;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4 , 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+.game .outer {
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 80%);
+    border-radius: 1em;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+    position: relative;
+    width: 10ch;
+    height: 10ch;
+    transform-style: preserve-3d;
+    perspective: 400px;
+}
+
+.game .outer .inner {
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%);
+    width: 45px;
+    height: 45px;
+    border-radius: .75em;
+}
+.game .face{
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--mainBlue);
+    box-shadow: 1px 1px 7px  color-mix(in srgb, var(--mainBlue), transparent 50%),
+    -1px 3px 10px rgb(256 256 256 / .2);
+    left: 0;
+    top: 0;
+    /* width: calc((400px - 5.3em)/4);
+    height: calc((400px - 5.3em)/4); */
+    width: 10ch;
+    height: 10ch;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: wrap;
+    color: black;
+    font-weight: 600;
+    text-shadow: 1px 1px 10px;
+    padding: .5em;
+    transition: all .3s ease;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    text-align: center;
+}
+.back{
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--mainBlue);
+    top: 0;
+    width: 10ch;
+    height: 10ch;
+    border-radius: 1em; 
+    z-index: -1; 
+    transition: all .3s ease;
+    transform-style: preserve-3d;
+}
+.question-mark{
+    font-size: 3.25em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+.game .done{
+    background-color: var(--green);
+    box-shadow: 0px 1px 7px color-mix(in srgb, var(--green), transparent 50%),
+    0px 2px 10px rgb(256 256 256 / .2);
+    border: var();
+}
+
+/* .outer:hover{
+    transform: rotateY(-180deg);
+} */
+
+/* End Game box */
+/* Start Levels */
+.levels{
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
+    border-radius: 1.5em;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
+    padding: 1.5em;
+    display: flex;
+    flex-flow: column nowrap ;
+    gap: 1em;
+    justify-content: space-evenly;
+}
+.levels h3 {
+    font-size: 20px;
+}
+.levels .path{
+    background-color: #324461;
+    width: 100%;
+    height: .5em;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.levels .progress-bar{
+    width: 50%;
+    height: 100%;
+    background-color: var(--mainBlue);
+    border-radius: 4px;
+}
+.levels p {
+    font-size: 14px;
+    color: #94A3B8;
+}
+.levels .btns{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .75em;
+}
+.levels .btns > button {
+    cursor: pointer;
+    border-radius: 1em;
+    font-weight: bold;
+    font-size: 16px;
+    padding: .75em;
+}
+.btns .restart{
+    background-color: var(--mainBlue);
+    box-shadow: 0px 4px 10px  rgba(37, 209, 244 , .4) ;
+    border: 0;
+} 
+.btns .restart i {
+    font-size: 14px;
+    margin-right: .5em;
+}
+.btns .setings {
+    color: var(--mainBlue);
+    display: flex;
+    justify-content: center;
+    gap:.4em ;
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
+    border: 0.1px solid color-mix(in srgb, var(--mainBlue), transparent 70%) ;
+}
+.btns .setings img{
+    width: 1.1em;
+}
+/* End Levels */
+
+/* Start Setings Dropdown */
+.setigns-drop-down{
+    position: absolute;
+    background-color: #0A1619;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 75%) ;
+    /* box-shadow: 0 0 10px 2px color-mix(in srgb, var(--mainBlue), transparent 75%) ; */
+    border-radius: 1em;
+    right: 4em;
+    width: 382px;
+    margin-top: .25em;
+    display: none;
+}
+.setigns-drop-down .title {
+    display: flex;
+    font-size: 18px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 1.5em;
+    position: relative;
+}
+.setigns-drop-down .title .delete{
+    cursor: pointer;
+}
+
+.setigns-drop-down .title h3 i {
+    color: var(--mainBlue);
+    margin-right: .25em;
+}
+.setigns-drop-down .title::after{
+content: "";
+background-color: color-mix(in srgb, var(--mainBlue), transparent 75%);
+width: 100%;
+height: 1px;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+.toggels > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.toggels{
+    position: relative;
+    padding: .5em 1.5em;
+
+}
+.toggels::after{
+    content: "";
+background-color: color-mix(in srgb, var(--mainBlue), transparent 75%);
+width: 100%;
+height: 1px;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+.toggels > div  p {
+    font-size: .75em;
+    color: #94A3B8 ;
+}
+.toggels > div label {
+    width : 3em ;
+    height: 1.75em;
+    border-radius: 1em;
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 80%);
+    position: relative;
+    transition: all .2s cubic-bezier(0, 0.6, 0, 1.03);
+    cursor: pointer;
+
+}
+.toggels > div label::before{
+    content: "";
+    background-color: #0A1619;
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 50%;
+    position: absolute;
+    inset: .25em;
+    display: block;
+    transition: all .2s cubic-bezier(0, 0.6, 0, 1.03);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .3) ;
+}
+.toggels > div input {
+    visibility: hidden;
+}
+.toggels > div input:checked + label::before{
+    transform: translateX(100%);
+
+}
+.toggels > div input:checked + label {
+    background-color: var(--mainBlue);
+}
+.toggels > div label:active::before{
+    transform-origin: left;
+    transform: scaleX(1.2);
+}
+.toggels > div input:checked + label:active::before{
+  transform-origin: right;
+  transform: scaleX(1.2);
+}
+.diffeculty{
+    padding: 1.5em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5em;
+
+}
+.diffeculty > span {
+    color: #94A3B8;
+    font-size: 14px;
+    font-weight: 500;
+}
+.diffeculty .diff-levels{
+    display: flex;
+    align-items: center;
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%);
+    padding: .25em ;
+    border-radius: 1.5em;
+}
+.diffeculty .diff-levels > span {
+    flex: 1 calc(100% / 3);
+    padding: .5em 2em;
+    border-radius: 1em;
+    color: #64748B;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+.diffeculty .diff-levels .active{
+    background-color: #0A1619;
+    color: var(--mainBlue);
+}
+.setigns-drop-down .footer {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75em;
+    background-color:  color-mix(in srgb, var(--mainBlue), transparent 95%) ;
+}
+.setigns-drop-down .footer .btn-close{
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 75%) ;
+    background-color: transparent;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    flex : 1 48% ;
+
+    border-radius: 1em;
+    font-weight: 600;
+}
+.setigns-drop-down .footer .btn-save{
+    color: #0A1619;
+    font-size: 14px;
+    padding: 10px;
+    flex : 1 48% ;
+    background-color: var(--mainBlue);
+    border: 0;
+    border-radius: 1em;
+    font-weight: 600;
+}
+/* End Setings Dropdown */

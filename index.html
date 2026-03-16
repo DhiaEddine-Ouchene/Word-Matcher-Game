@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="font answeme/css font awseme/all.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/logo.svg" alt="logo" />
+        <span class="memory-logo">Word</span>
+        <span class="block-logo">Matcher</span>
+      </div>
+      <div>
+        <button class="btn-setings">
+          <img src="/assets/setingsIcon.svg" alt="setings" />
+        </button>
+        <div class="setigns-drop-down">
+          <div class="title">
+            <h3><i class="fa-solid fa-sliders"></i>Game Settings</h3>
+            <i class="fa-solid fa-xmark delete"></i>
+          </div>
+          <div class="toggels">
+            <div class="sound">
+              <div>
+                <span>Sound Effects</span>
+                <p>Game action feedback sounds</p>
+              </div>
+              <input type="checkbox" name="sound" id="sound-toggele" />
+              <label for="sound-toggele"></label>
+            </div>
+            <div class="music">
+              <div>
+                <span>Music</span>
+                <p>Atmospheric background trackss</p>
+              </div>
+              <input type="checkbox" name="music" id="music-toggele" />
+              <label for="music-toggele"></label>
+            </div>
+          </div>
+          <div class="diffeculty">
+            <span>DIFFICULTY</span>
+            <div class="diff-levels">
+              <span>Easy</span>
+              <span class="active">Medium</span>
+              <span>Hard</span>
+            </div>
+          </div>
+          <div class="footer">
+            <button class="btn-close">Close</button>
+            <button class="btn-save">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="infos">
+        <div class="time-box">
+          <span class="title"
+            ><i class="fa-solid fa-hourglass-half"></i>TIMER</span
+          >
+          <span class="time">00:45</span>
+        </div>
+        <div class="score-box">
+          <span class="title"
+            ><i class="fa-regular fa-star"></i>CURRENT SCORE</span
+          >
+          <span class="score">1,250</span>
+        </div>
+        <div class="High-score-box">
+          <span class="title"
+            ><i class="fa-solid fa-trophy"></i>HIGH SCORE</span
+          >
+          <span class="High-score">5,000</span>
+        </div>
+      </div>
+      <div class="main-game">
+        <div class="game">
+          <div class="outer"><div class="back" word="Hello"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">Hello</div></div></div>
+          <div class="outer "><div class="back" word="Hi"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">Hi</div></div></div>
+          <div class="outer"><div class="back" word="example"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">example</div></div></div>
+          <div class="outer"><div class="back" word="test"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">test</div></div></div>
+          <div class="outer"><div class="back" word="complete"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">complete</div></div></div>
+          <div class="outer"><div class="back" word="model"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">model</div></div></div>
+          <div class="outer"><div class="back" word="false"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">false</div></div></div>
+          <div class="outer"><div class="back" word="method"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">method</div></div></div>
+          <div class="outer"><div class="back" word="wrong"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">wrong</div></div></div>
+          <div class="outer"><div class="back" word="thechnique"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">thechnique</div></div></div>
+          <div class="outer"><div class="back" word="beautiful"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">beautiful</div></div></div>
+          <div class="outer"><div class="back"word="incrediable"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">incrediable</div></div></div>
+          <div class="outer"><div class="back"word="quick"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">quick</div></div></div>
+          <div class="outer"><div class="back" word="free"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">free</div></div></div>
+          <div class="outer"><div class="back" word="without-money"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">without-money</div></div></div>
+          <div class="outer"><div class="back" word="fast"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">fast</div></div></div>
+        </div>
+        <div class="levels">
+          <h3>Level 01</h3>
+          <div class="path">
+            <div class="progress-bar"></div>
+          </div>
+          <p>
+            Match 4 more pairs to reach the <br />
+            next level
+          </p>
+          <div class="btns">
+            <button class="restart">
+              <i class="fa-solid fa-arrows-rotate"></i>Restart Game
+            </button>
+            <button class="setings">
+              <img src="/assets/setingsIcon.svg" alt="setings" />Game Settings
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js" typ></script>
+  </body>
+</html>
