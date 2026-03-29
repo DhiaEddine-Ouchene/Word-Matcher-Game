@@ -30,6 +30,7 @@ main {
     align-items: center;
     margin-top: 1.5em;
     gap: 2.5em;
+    width: 100vw;
 }
 /* End Global Rules */
 
@@ -66,7 +67,7 @@ header {
     height: 34px;
 }
 
-.btn-setings {
+.btn-setings , .btn-restart{
     background-color:  rgb(37 209 244 /0.1) ;
     border: 1px solid rgb(37 209 244 /0.2);
     width: 40px;
@@ -75,6 +76,17 @@ header {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.btn-restart i{
+  font-size: 14px;
+}
+.gear{
+    transition: .3s all ease;
+}
+.gear.animated{
+    transform: rotate(90deg);
 }
 /* End Header */
 
@@ -85,6 +97,8 @@ header {
     gap : .75em ; 
     width: clamp(700px , 60vw , 60vw);
     margin: auto;
+    width: 100%;
+    padding: 0 1em;
 }
 .infos > div {
     display: flex;
@@ -98,38 +112,77 @@ header {
     border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
     border-radius: 1em;
 }
-.infos > div > .title {
+    .High-score-box .High-score {
+        color: white;
+    }
+.infos > div > .title ,
+.High-score-box  > .title{
     font-size: 14px;
     color: var(--mainBlue);
 
 }
+.infos > div > :not(span:first-child){
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.score{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 1em;
+    transition: all .3s ease;
+}
+.score img{
+    opacity: 0;
+}
+.score .show-score{
+    animation: scorePopup .8s ease  ;
+}
+
+@keyframes scorePopup {
+    25% {
+        opacity: 1;
+    }
+    25%{
+        transform: scale(1.4);
+    }
+    75% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(.3);
+        opacity: 0;
+    }
+}
+
 .infos > div > .title i {
     font-size: 12px;
     margin-right: .5em;
 }
-.infos > div > span:last-child {
-    font-weight: bold;
-    font-size: 1.75em;
-}
+
 /* End Main Info */
 
 /* Start Game box */
 .main-game{
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 2em;
+    gap: .75em;
     margin-top: -1.25em;
+    width: 100%;
+    padding: 0 1em;
 }
 main .game {
     background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
     border-radius: 1.5em;
     border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4 , 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3 , 1fr);
     gap: 1em;
     padding: 1em;
+    flex:1 ;
 }
 
 .game .outer {
@@ -141,7 +194,7 @@ main .game {
     align-items: center;
     transition: all .3s ease;
     position: relative;
-    width: 10ch;
+    min-width: 10ch;
     height: 10ch;
     transform-style: preserve-3d;
     perspective: 400px;
@@ -154,7 +207,7 @@ main .game {
     border-radius: .75em;
 }
 .game .face{
-    cursor: pointer;
+    cursor: drop-down;
     position: absolute;
     background-color: var(--mainBlue);
     box-shadow: 1px 1px 7px  color-mix(in srgb, var(--mainBlue), transparent 50%),
@@ -163,7 +216,7 @@ main .game {
     top: 0;
     /* width: calc((400px - 5.3em)/4);
     height: calc((400px - 5.3em)/4); */
-    width: 10ch;
+    width: 100%;
     height: 10ch;
     border-radius: 1em;
     display: flex;
@@ -184,7 +237,7 @@ main .game {
     position: absolute;
     background-color: var(--mainBlue);
     top: 0;
-    width: 10ch;
+    width: 100%;
     height: 10ch;
     border-radius: 1em; 
     z-index: -1; 
@@ -200,9 +253,21 @@ main .game {
 }
 .game .done{
     background-color: var(--green);
-    box-shadow: 0px 1px 7px color-mix(in srgb, var(--green), transparent 50%),
-    0px 2px 10px rgb(256 256 256 / .2);
-    border: var();
+    box-shadow: 0px 1px 7px color-mix(in srgb, var(--green), transparent 50%), 0px 2px 10px rgb(256 256 256 / .2); 
+    border: var(--green);
+    /* animation: pulse-success 1s ease  infinite ; */
+}
+.pulse {
+        --animationColor : var(--mainBlue) ;
+        animation: pulse-success 1s ease  infinite ;
+}
+@keyframes pulse-success {
+    0%{ box-shadow: 0px 1px 7px color-mix(in srgb, var(--animationColor), transparent 50%), 0px 2px 10px rgb(256 256 256 / .2); scale: 1;} 
+    50%{ box-shadow: 0px 2px 12px color-mix(in srgb, var(--animationColor), transparent 50%), 0px 3px 14px rgb(256 256 256 / .2); scale: 1.02;} 
+    100%{ box-shadow: 0px 1px 7px color-mix(in srgb, var(--animationColor), transparent 50%), 0px 2px 10px rgb(256 256 256 / .2); scale: 1;} 
+    /* 0%{scale : 1} 
+    50% {scale :1.02} 
+    100% {scale : 1}  */
 }
 
 /* .outer:hover{
@@ -215,7 +280,7 @@ main .game {
     background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
     border-radius: 1.5em;
     border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
-    padding: 1.5em;
+    padding: 1em;
     display: flex;
     flex-flow: column nowrap ;
     gap: 1em;
@@ -223,13 +288,14 @@ main .game {
 }
 .levels h3 {
     font-size: 20px;
+    text-indent: .25em;
 }
 .levels .path{
     background-color: #324461;
     width: 100%;
     height: .5em;
     border-radius: 4px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .levels .progress-bar{
     width: 50%;
@@ -241,43 +307,149 @@ main .game {
     font-size: 14px;
     color: #94A3B8;
 }
-.levels .btns{
+ .btns{
     display: flex;
-    flex-flow: column nowrap;
     gap: .75em;
 }
-.levels .btns > button {
+ .btns > button {
+    flex: 1;
     cursor: pointer;
     border-radius: 1em;
     font-weight: bold;
     font-size: 16px;
     padding: .75em;
 }
-.btns .restart{
+.btns .start , 
+.btns .level{
     background-color: var(--mainBlue);
     box-shadow: 0px 4px 10px  rgba(37, 209, 244 , .4) ;
     border: 0;
 } 
-.btns .restart i {
+.btns .start i {
     font-size: 14px;
     margin-right: .5em;
 }
-.btns .setings {
+/* .btns .btn-setings{
+    padding: 1.2em 0em;
+    flex: 1 ;
+} */
+.btns .btn-restart ,
+.to-dashbord {
     color: var(--mainBlue);
     display: flex;
     justify-content: center;
     gap:.4em ;
     background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
     border: 0.1px solid color-mix(in srgb, var(--mainBlue), transparent 70%) ;
+  
 }
 .btns .setings img{
     width: 1.1em;
 }
+.game-stat{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: .5em;
+}
+.game-stat h2 {
+    color: var(--mainBlue);
+}
+.levels .btns > button {
+    padding: .25em;
+}
 /* End Levels */
+/* Start definition */
+.definition{
+    background-color: color-mix(in srgb, var(--mainBlue), transparent 90%) ;
+    border-radius: 1.5em;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%) ;
+    padding: 1em;
+    gap: 1em;
+    flex: 1;
+}
+
+.col-2{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: stretch;
+    flex: .5;
+}
+
+.definition{
+   flex: 1 100%;
+}
+
+.definition h3{
+    color: var(--mainBlue);
+    display: flex;
+    align-items: center;
+    gap: .25em;
+    padding-bottom: .75em;
+}
+.definition h3 svg{
+    width: 1.2em;
+}
+
+.definition .matches{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .75em;
+    height: 28vh;
+    overflow-y: auto;
+}
+.match-card{
+    background-color: rgba(5, 13, 18,50%);
+    border: 1px solid rgba(33, 85, 112, 0.5);
+    border-radius: 1em  ;
+    padding: .75em;
+    overflow: hidden;
+    flex-shrink: 0;
+
+}
+.definition .words{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.definition .words i{
+    color: #9CA3AF;
+}
+.definition .words span{
+    color: var(--green);
+    font-weight: 800;
+}
+.definition .match-card p {
+    font-size: .75em;
+    color: #9CA3AF;
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; */
+    width: 27vw;
+}
+.definition .match-card .info{
+    display: flex;
+    flex-flow: column;
+    gap: .25em;
+}
+.definition .match-card .more-btn{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: .25em;
+    display: none;
+}
+/* End definitions */
 
 /* Start Setings Dropdown */
 .setigns-drop-down{
     position: absolute;
+    z-index: 300;
     background-color: #0A1619;
     border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 75%) ;
     /* box-shadow: 0 0 10px 2px color-mix(in srgb, var(--mainBlue), transparent 75%) ; */
@@ -298,7 +470,9 @@ main .game {
 .setigns-drop-down .title .delete{
     cursor: pointer;
 }
-
+.setigns-drop-down .title .delete:active{
+    color: rgba(238, 17, 1, 0.741);
+}
 .setigns-drop-down .title h3 i {
     color: var(--mainBlue);
     margin-right: .25em;
@@ -377,7 +551,7 @@ left: 0;
   transform-origin: right;
   transform: scaleX(1.2);
 }
-.diffeculty{
+.difficulty{
     padding: 1.5em;
     padding-bottom: 2em;
     display: flex;
@@ -385,19 +559,19 @@ left: 0;
     gap: .5em;
 
 }
-.diffeculty > span {
+.difficulty > span {
     color: #94A3B8;
     font-size: 14px;
     font-weight: 500;
 }
-.diffeculty .diff-levels{
+.difficulty .diff-levels{
     display: flex;
     align-items: center;
     background-color: color-mix(in srgb, var(--mainBlue), transparent 90%);
     padding: .25em ;
     border-radius: 1.5em;
 }
-.diffeculty .diff-levels > span {
+.difficulty .diff-levels > span {
     flex: 1 calc(100% / 3);
     padding: .5em 2em;
     border-radius: 1em;
@@ -405,8 +579,9 @@ left: 0;
     font-size: 14px;
     cursor: pointer;
     text-align: center;
+    transition: all .3s ease;
 }
-.diffeculty .diff-levels .active{
+.difficulty .diff-levels .active{
     background-color: #0A1619;
     color: var(--mainBlue);
 }
@@ -425,7 +600,7 @@ left: 0;
     font-size: 14px;
     padding: 10px;
     flex : 1 48% ;
-
+    cursor: pointer;
     border-radius: 1em;
     font-weight: 600;
 }
@@ -438,5 +613,239 @@ left: 0;
     border: 0;
     border-radius: 1em;
     font-weight: 600;
+    cursor: pointer;
 }
 /* End Setings Dropdown */
+/* Start popup */
+.popup{
+    display: none;
+    background-color: #0D1C24;
+    position: fixed;
+    z-index: 999;
+    width: clamp(500px,40vw,50vw);
+    height: 65vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    padding: 2em;
+    border-radius: 1.5em;
+    border: 1px solid color-mix(in srgb, var(--mainBlue), transparent 80%);
+}
+.popup .head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popup .head img {
+    width: 5em;
+}
+.popup .head h1{
+    margin-top: -.25em;
+    color: var(--mainBlue);
+}
+.popup .status{
+    display: flex; ;
+    gap: 1em;
+}
+
+.popup .status > div{
+    background-color: rgba(8,20,25,0.5);
+    border: 1px solid #162B35;
+    border-radius: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .75em;
+    flex: 1;
+}
+.popup .status > div h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--mainBlue);
+}
+.popup .status > div span{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.popup .progress .title{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: .75em;
+    letter-spacing: 1px;
+    color: #9CA3AF;
+}
+.popup .progress .title .level{
+    color: var(--mainBlue);
+}
+.popup .progress .path{
+    background-color: #324461;
+    width: 100%;
+    height: .5em;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.popup .progress .bar{
+    width: 50%;
+    height: 100%;
+    background-color: var(--mainBlue);
+    border-radius: 4px;
+}
+
+
+.popup .status {
+    margin-top: 2em;
+}
+
+.popup .progress{
+    margin-top: 1.5em;
+    margin-bottom: 3em;
+}
+
+
+
+
+.popup-bg{
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark tint */
+    backdrop-filter: blur(8px);
+}
+
+/* End popup */
+/* Start Global Animations */
+.btn-animation{
+    animation: click .2s ease ;
+    animation-iteration-count: 1 ;
+}
+/* .toTransparent {
+    animation: toTransparent .3s ease forwards ;
+} */
+@keyframes click {
+    0%{scale: 1 ;}
+    50%{scale: 1.04;}
+    100%{scale: 1;}
+}
+@keyframes toTransparent {
+    0%{opacity: 1 ; display: block;}
+    100%{opacity: 0;display: none;}
+}
+/* End Global Animations */
+
+
+/* Extra small — phones portrait */ 
+
+@media (max-width: 1024px) { 
+    header{
+        padding: .7em 1.2em ;
+        width: 100vw;
+    }
+    main {
+        margin-top:  .75em;
+        gap: 2em;
+    }
+    /* start info */
+    .High-score-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        height: fit-content;
+        padding:  1.5em ;
+    }
+    .High-score-box .title{
+        padding: 0;
+        display: flex ;
+        align-items: center;
+        gap: .25em;
+        font-weight: bold;
+    }
+    .High-score-box .title::after{
+        width: 0;
+    }
+    .High-score-box .High-score {
+        font-size: 1.5em;
+        font-weight: bold;
+        /* color: var(--green); */
+    }
+  
+    .infos > div {
+        padding: .5em 1em;
+    }
+    .infos .score {
+        height: 1.2em;
+    }
+
+    .score img {
+        width: 24px;
+    }
+    /* End info */
+    /* Start Game */
+    .main-game{
+        flex-flow: column nowrap;
+    }
+       .game .outer {
+        font-size: 14px ;
+    }
+ 
+    main .game {
+        gap: .5em;
+    }
+    /* End Game */
+    /* Start setings */
+.setigns-drop-down{
+    right: 1em;
+    width: 92vw;
+}
+    /* End setings */
+    /* Start Levels */
+    .game-stat h2 {
+        font-size: 1.25em;
+    }
+
+    /* End Levels */
+    /* Start popup */
+    .popup{
+        min-width: unset;
+        height: auto;
+        zoom: .72;
+    }
+    .title .level ,.title span:first-child {
+        font-size: 1.25em;
+    }
+    /* End popup */
+    /* Start Def */
+    .definition .match-card p {
+        width: 100%;
+    }
+    /* End Def */
+}
+@media (max-width: 768px) {
+     .High-score-box .High-score {
+  
+        color: var(--green);
+    }
+    /* .High-score-box{
+        display: none ;
+    } */
+  .difficulty{
+        padding-bottom: 0;
+    }
+       .game .outer {
+        font-size: 10px ;
+    }
+ }
+
+/* Medium — tablets */
+@media (max-width: 1024px) {
+
+}

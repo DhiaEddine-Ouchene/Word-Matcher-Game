@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="font answeme/css font awseme/all.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <title>Memory Game</title>
   </head>
   <body>
@@ -22,7 +23,7 @@
       </div>
       <div>
         <button class="btn-setings">
-          <img src="/assets/setingsIcon.svg" alt="setings" />
+          <img src="/assets/setingsIcon.svg" class="gear" alt="setings" />
         </button>
         <div class="setigns-drop-down">
           <div class="title">
@@ -35,7 +36,7 @@
                 <span>Sound Effects</span>
                 <p>Game action feedback sounds</p>
               </div>
-              <input type="checkbox" name="sound" id="sound-toggele" />
+              <input type="checkbox" name="sound" id="sound-toggele" checked/>
               <label for="sound-toggele"></label>
             </div>
             <div class="music">
@@ -43,11 +44,11 @@
                 <span>Music</span>
                 <p>Atmospheric background trackss</p>
               </div>
-              <input type="checkbox" name="music" id="music-toggele" />
+              <input type="checkbox" name="music" id="music-toggele" checked />
               <label for="music-toggele"></label>
             </div>
           </div>
-          <div class="diffeculty">
+          <div class="difficulty">
             <span>DIFFICULTY</span>
             <div class="diff-levels">
               <span>Easy</span>
@@ -55,73 +56,119 @@
               <span>Hard</span>
             </div>
           </div>
+          <div class="High-score-box">
+          <span class="title"
+            ><i class="fa-solid fa-trophy"></i>HIGH SCORE</span
+          >
+          <span class="High-score">0</span>
+        </div>
           <div class="footer">
-            <button class="btn-close">Close</button>
+            <button class="btn-close delete">Close</button>
             <button class="btn-save">Save Changes</button>
           </div>
         </div>
       </div>
     </header>
+    <div class="popup">
+      <div class="head">
+        <img src="assets/donePopup.svg" alt="done">
+        <h1>LEVEL <span class="level">04</span> COMPLETE!</h1>
+      </div>
+      <div class="status">
+        <div class="stat-time">
+          <h2>TIME TAKEN</h2>
+          <span>00:42</span>
+        </div>
+        <div class="stat-matches">
+          <h2>MATCHES</h2>
+          <span>12/12</span>
+        </div>
+        <div class="stat-points">
+          <h2>POINTS</h2>
+          <span>5000</span>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="title">
+          <span>TOTAL PROGRESS</span>
+          <span class="level">LEVEL 4</span>
+        </div>
+        <div class="path">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="level">NEXT LEVEL</button>
+        <button class="to-dashbord">VIEW LEADERBOARD</button>
+      </div>
+    </div>
+    <div class="popup-bg"></div>
     <main>
       <div class="infos">
         <div class="time-box">
           <span class="title"
             ><i class="fa-solid fa-hourglass-half"></i>TIMER</span
           >
-          <span class="time">00:45</span>
+          <span class="time"><span class="min">00</span>:<span class="sec">00</span></span>
         </div>
         <div class="score-box">
           <span class="title"
             ><i class="fa-regular fa-star"></i>CURRENT SCORE</span
           >
-          <span class="score">1,250</span>
+          <span class="score"><span class="points">0</span> <img src="assets/tripleBonus.svg" alt="triple"></span>
         </div>
-        <div class="High-score-box">
-          <span class="title"
-            ><i class="fa-solid fa-trophy"></i>HIGH SCORE</span
-          >
-          <span class="High-score">5,000</span>
-        </div>
+     
       </div>
       <div class="main-game">
         <div class="game">
-          <div class="outer"><div class="back" word="Hello"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">Hello</div></div></div>
-          <div class="outer "><div class="back" word="Hi"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">Hi</div></div></div>
-          <div class="outer"><div class="back" word="example"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">example</div></div></div>
-          <div class="outer"><div class="back" word="test"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">test</div></div></div>
-          <div class="outer"><div class="back" word="complete"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">complete</div></div></div>
-          <div class="outer"><div class="back" word="model"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">model</div></div></div>
-          <div class="outer"><div class="back" word="false"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">false</div></div></div>
-          <div class="outer"><div class="back" word="method"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">method</div></div></div>
-          <div class="outer"><div class="back" word="wrong"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">wrong</div></div></div>
-          <div class="outer"><div class="back" word="thechnique"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">thechnique</div></div></div>
-          <div class="outer"><div class="back" word="beautiful"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">beautiful</div></div></div>
-          <div class="outer"><div class="back"word="incrediable"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">incrediable</div></div></div>
-          <div class="outer"><div class="back"word="quick"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">quick</div></div></div>
-          <div class="outer"><div class="back" word="free"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">free</div></div></div>
-          <div class="outer"><div class="back" word="without-money"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">without-money</div></div></div>
-          <div class="outer"><div class="back" word="fast"><span class="question-mark"><i class="fa-regular fa-circle-question"></i></span><div class="face">fast</div></div></div>
+         
         </div>
-        <div class="levels">
-          <h3>Level 01</h3>
-          <div class="path">
-            <div class="progress-bar"></div>
+        <div class="col-2">
+          <div class="levels">
+            <div class="game-stat">
+              <h3>Level 01</h3>
+              <h2>Rank 01</h2>
+            </div>
+            
+            <div class="path">
+              <div class="progress-bar"></div>
+            </div>
+            <p>
+             
+            </p>
+            <div class="btns">
+              <button class="start">
+                <!-- <i class="fa-solid fa-arrows-rotate"></i> -->
+                <i class="fa-solid fa-play"></i>
+                Start Game
+              </button>
+              <button class="btn-restart">
+                <i class="fa-solid fa-arrow-rotate-right"></i>Restart Game
+              </button>
+            </div>
           </div>
-          <p>
-            Match 4 more pairs to reach the <br />
-            next level
-          </p>
-          <div class="btns">
-            <button class="restart">
-              <i class="fa-solid fa-arrows-rotate"></i>Restart Game
-            </button>
-            <button class="setings">
-              <img src="/assets/setingsIcon.svg" alt="setings" />Game Settings
-            </button>
+          <div class="definition">
+            <h3>
+              <svg
+                fill="currentColor"
+                viewbox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+              >
+                <path
+                  d="M9 4.804A7.993 7.993 0 002 12a7.998 7.998 0 003 6.338V17a1 1 0 00-1-1 5 5 0 015-5h.001A5.002 5.002 0 0115 16a1 1 0 00-1 1v1.338A7.998 7.998 0 0018 12a7.993 7.993 0 00-7-7.196V3a1 1 0 10-2 0v1.804z"
+                ></path>
+              </svg>
+              Match History
+            </h3>
+            <div class="matches">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
-    <script src="script.js" typ></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>
