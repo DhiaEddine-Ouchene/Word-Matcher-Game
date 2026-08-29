@@ -8,7 +8,7 @@ let setings ;
 if(localStorage.getItem("setings")){
   setings = JSON.parse(localStorage.getItem("setings"))
 } else {
-  setings = {soundEffects : true , music : true , difficulty : "medium"} ;
+  setings = {soundEffects : true , music : true , difficulty : "Medium"} ;
   localStorage.setItem("setings",JSON.stringify(setings)) ;
 }
 import "./ui.js";
