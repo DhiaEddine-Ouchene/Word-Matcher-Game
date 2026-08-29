@@ -4,7 +4,7 @@ import * as sfx from "./sfx.js";
 import * as data from "./getData.js"
 
 //initialiation of setings
-let setingsParameters = JSON.parse(localStorage.getItem("setings")) ;
+let setingsParameters = JSON.parse(localStorage.getItem("setings")) || {soundEffects: true, music: true, difficulty: "Medium"} ;
 document.querySelector(".sound #sound-toggele").checked = setingsParameters.soundEffects ;
 document.querySelector(".music #music-toggele").checked = setingsParameters.music ;
 document.querySelectorAll(".diff-levels span").forEach(diffLevel => {
