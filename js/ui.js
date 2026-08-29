@@ -4,9 +4,13 @@ import * as sfx from "./sfx.js";
 import * as data from "./getData.js"
 
 //initialiation of setings
-// let setingsParameters = JSON.parse(localStorage.getItem("setings")) ;
-// document.querySelector(".toggels #sound-toggele").checked = setingsParameters.soundEffects ;
-// document.querySelector(".toggels #music-toggele").checked = setingsParameters.music ;
+let setingsParameters = JSON.parse(localStorage.getItem("setings")) ;
+document.querySelector(".sound #sound-toggele").checked = setingsParameters.soundEffects ;
+document.querySelector(".music #music-toggele").checked = setingsParameters.music ;
+document.querySelectorAll(".diff-levels span").forEach(diffLevel => {
+    if(diffLevel.innerHTML.trim() === setingsParameters.difficulty) {diffLevel.classList.add("active")}
+    else{diffLevel.classList.remove("active")} ;
+})
 
 
 let setingsBtns = document.querySelectorAll(".btn-setings");
