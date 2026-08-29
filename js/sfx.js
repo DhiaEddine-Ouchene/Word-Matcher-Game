@@ -185,23 +185,37 @@ export function playGameOver() {
 }
 
 
-export function playMusic(firstclick){
-  if(firstclick){
-  if(!game.musicEnabled()) return
+let musicAudio = null;
+
+export function initMusic(){
+  if (musicAudio) return; // already initialized, don't create a second player
+
   let traks = ["../audio/music/track1.mp3" ,"../audio/music/track2.mp3" ,"../audio/music/track3.mp3" ] ;
   let currentTrack = 0 ;
-  let audio = new Audio(traks[currentTrack]) ;
+  musicAudio = new Audio(traks[currentTrack]) ;
+  musicAudio.volume = 0.3 ;
 
-document.querySelector("header .btn-save").addEventListener("click",function(){
-  let setings = JSON.parse(localStorage.getItem("setings")) ;
-  if (!setings.music){audio.pause() }else{audio.play()} ;
-})
-  if(game.musicEnabled()) audio.play() ;
-  audio.volume = 0.3 ;
-  audio.addEventListener("ended" , function(){
-    currentTrack = (currentTrack+ 1) % traks.length ;
-    audio.src = traks[currentTrack] ;
-  audio.play() ;
-  audio.volume = 0.3 ;
-  })}
+  document.querySelector("header .btn-save").addEventListener("click",function(){
+    let setings = JSON.parse(localStorage.getItem("setings")) ;
+    if (!setings.music){ musicAudio.pause() } else { musicAudio.play() } ;
+  })
+
+  musicAudio.addEventListener("ended" , function(){
+    currentTrack = (currentTrack + 1) % traks.length ;
+    musicAudio.src = traks[currentTrack] ;
+    musicAudio.play() ;
+    musicAudio.volume = 0.3 ;
+  })
+
+  if(game.musicEnabled()){
+    // Browsers block audio autoplay before any user interaction with the page.
+    // Try to play immediately; if blocked, start on the very first click/tap anywhere.
+    musicAudio.play().catch(function(){
+      const startOnFirstInteraction = function(){
+        if (game.musicEnabled()) musicAudio.play();
+        document.removeEventListener("click", startOnFirstInteraction);
+      };
+      document.addEventListener("click", startOnFirstInteraction);
+    });
+  }
 }
