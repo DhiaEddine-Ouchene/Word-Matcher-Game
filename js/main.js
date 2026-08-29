@@ -33,14 +33,11 @@ document.querySelector(".High-score-box .High-score").innerHTML = bestScore ;
 
 
 game.showLevel(step) ;
-let firstclick = true ;
+sfx.initMusic() ;
 let start = document.querySelector(".btns .start");
 // let SuccessGame = false; 
 start.addEventListener("click", function () {
   sfx.playClick()
-
-  sfx.playMusic(firstclick) ;
-  firstclick = false ;
 
   // let gameTime = cst.ranks[`rank${step.currentRank}`]["time"][`${game.getDifficulty().toLocaleLowerCase()}`] ;
   // gameTime = gameTime.min*60000 + gameTime.sec*1000 ;
